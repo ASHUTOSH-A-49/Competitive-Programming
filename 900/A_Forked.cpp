@@ -36,14 +36,32 @@ void solve() {
     cin>>xk>>yk;
     int xq,yq;
     cin>>xq>>yq;
-    int minsp = min(a,b);
-    if(abs(xq-xk)-1<minsp && abs(yq-yk)<minsp){
-        cout<<0<<endl;
-    }else if((dist(xk,yk,xq,yq)/2)>(dist(a,b,0,0))){
-        cout<<0<<endl;
-    }else{
-        
+    set<pair<int,int>> kset;
+    set<pair<int,int>> qset;
+    kset.insert({xk-a,yk-b});
+    kset.insert({xk-a,yk+b});
+    kset.insert({xk+a,yk-b});
+    kset.insert({xk+a,yk+b});
+    kset.insert({xk-b,yk-a});
+    kset.insert({xk+b,yk-a});
+    kset.insert({xk-b,yk+a});
+    kset.insert({xk+b,yk+a});
+
+    qset.insert({xq-a,yq-b});
+    qset.insert({xq-a,yq+b});
+    qset.insert({xq+a,yq-b});
+    qset.insert({xq+a,yq+b});
+    qset.insert({xq-b,yq-a});
+    qset.insert({xq+b,yq-a});
+    qset.insert({xq-b,yq+a});
+    qset.insert({xq+b,yq+a});
+
+    int cnt = 0;
+    for(auto p:kset){
+        if(qset.find(p)!=qset.end())cnt++;
     }
+    cout<<cnt<<endl;
+    
 }
 //main
 int main() {
