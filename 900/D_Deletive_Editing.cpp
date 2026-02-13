@@ -26,8 +26,29 @@ void fastIO() {
 
 //solve
 void solve() {
-    int n,w;cin>>n>>w;
-    cout<< (n/w)*(w-1) + (n%w)<<endl;
+    string s,t;
+    cin>>s>>t;
+    vector<int> freqt(26,0);
+    vector<int> freqs(26,0);
+
+    for(int i = 0;i<s.size();i++) freqs[s[i]-'A']++;
+    for(int i = 0;i<t.size();i++) freqt[t[i]-'A']++;
+
+    // for(int i = 0;i<26;i++){
+    //     if(freqt[i]>freqs[i]) cout<<"NO"<<endl;
+    // }
+
+    for(int i = s.size()-1;i>=0;i--){
+        if(freqt[s[i]-'A']>0) freqt[s[i]-'A']--;
+        else s[i] = '.';
+    }
+    string newstr = "";
+    for(int i = 0;i<s.size();i++){
+        if(s[i]!='.') newstr+=s[i];
+    }
+    // //cout<<newstr<<endl;
+    if(newstr==t) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 }
 //main
 int main() {

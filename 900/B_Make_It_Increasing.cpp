@@ -26,8 +26,31 @@ void fastIO() {
 
 //solve
 void solve() {
-    int n,w;cin>>n>>w;
-    cout<< (n/w)*(w-1) + (n%w)<<endl;
+    int n;
+    cin>>n;
+    vi a(n);
+    int count = 0;
+    for(int i = 0;i<n;i++) cin>>a[i];
+    if(n==1) cout<<0<<endl;
+    else{
+      for(int i = n-1;i>0;i--){
+        while(a[i-1]>=a[i] && a[i-1]>0 ) {
+            a[i-1]=a[i-1]/2;
+            count++;
+        }
+    }
+    int flag = true;
+    for(int i = 0;i<n-1;i++){
+        if(a[i]>=a[i+1]){
+            flag = false;
+            break;
+        }
+    }
+
+    if(flag) cout<<count<<endl;
+    else cout<<-1<<endl;  
+    }
+    
 }
 //main
 int main() {
