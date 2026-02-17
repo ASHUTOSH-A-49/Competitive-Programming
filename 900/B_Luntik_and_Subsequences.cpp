@@ -26,7 +26,18 @@ void fastIO() {
 
 //solve
 void solve() {
-    
+    int n;
+    cin>>n;
+    vi a(n);
+    int n1 = 0,n0 = 0;
+    for(int i = 0;i<n;i++){
+        cin>>a[i];
+        if(a[i]==0) n0++;
+        if(a[i]==1) n1++;
+    }
+
+    long long per1 = 1ll<<n0;
+    cout<<n1*per1<<endl;
 }
 //main
 int main() {

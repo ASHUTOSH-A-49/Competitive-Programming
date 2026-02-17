@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#include <numeric>
 using namespace std;
 
 // Types
@@ -26,7 +26,25 @@ void fastIO() {
 
 //solve
 void solve() {
-    
+    int a,b,c;cin>>a>>b>>c;
+    if((a+c)%2==0){
+        int newb = (a+c)/2;
+        if(newb%b==0) cout<<"YES"<<endl;
+        else{
+        int newa = 2*b-c;
+        int newc = 2*b-a;
+        if((newa>0) && newa%a==0) cout<<"YES"<<endl;
+        else if((newc>0) && newc%c==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+    }else{
+        int newa = 2*b-c;
+        int newc = 2*b-a;
+        if((newa>0) && newa%a==0) cout<<"YES"<<endl;
+        else if((newc>0) && newc%c==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+
 }
 //main
 int main() {

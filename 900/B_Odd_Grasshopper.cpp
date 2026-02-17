@@ -26,7 +26,30 @@ void fastIO() {
 
 //solve
 void solve() {
+    long long x0, n;
+    cin >> x0 >> n;
     
+    long long d = 0;
+    long long rem = n % 4;
+    
+    if (rem == 0) {
+        d = 0;
+    } else if (rem == 1) {
+        d = -n;
+    } else if (rem == 2) {
+        d = 1;
+    } else if (rem == 3) {
+        d = n + 1;
+    }
+    
+    if (abs(x0) % 2 == 0) {
+        cout << x0 + d << endl;
+    } else {
+        cout << x0 - d << endl;
+    }
+
+    
+
 }
 //main
 int main() {

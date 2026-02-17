@@ -26,7 +26,11 @@ void fastIO() {
 
 //solve
 void solve() {
-    
+    string s;
+    cin>>s;
+    int n = s.size();
+    if(s[0]!=s[n-1]) s[0] = s[n-1];
+    cout<<s<<endl;
 }
 //main
 int main() {
